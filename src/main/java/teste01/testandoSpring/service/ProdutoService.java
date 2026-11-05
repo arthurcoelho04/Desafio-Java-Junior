@@ -25,7 +25,7 @@ public class ProdutoService {
 
 
     public boolean verificarNomeExistente(String nome) {
-        return produtoRepository.existsByNome(nome);
+        return produtoRepository.existsByNomeIgnoreCase(nome);
     }
 
     public void nomeExiste(String nome) {

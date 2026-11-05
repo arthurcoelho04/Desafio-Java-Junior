@@ -29,6 +29,7 @@ public class ProdutoController {
     @ApiResponse(responseCode = "201", description = "Produto cadastrado com sucesso")
     @ApiResponse(responseCode = "409", description = "Produto já cadastrado")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "400", description = "Dados inválidos")
     public ResponseEntity<ProdutoResponseDTO> cadastrarProduto(@Valid @RequestBody ProdutoRequestDTO dto) {
         ProdutoResponseDTO produtoCadastrado = produtoService.cadastrarProduto(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(produtoCadastrado);
@@ -68,6 +69,7 @@ public class ProdutoController {
     @ApiResponse(responseCode = "404", description = "Produto não encontrado")
     @ApiResponse(responseCode = "200", description = "Produto alterado com sucesso")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
+    @ApiResponse(responseCode = "400", description = "Dados inválidos")
     public ResponseEntity<ProdutoResponseDTO> atualizarProdutoPorNome
             (@Valid @RequestBody ProdutoRequestDTO dto, @PathVariable String nome) {
         ProdutoResponseDTO produtoAlterado = produtoService.atualizarProdutoPorNome(nome, dto);
